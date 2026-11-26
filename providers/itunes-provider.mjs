@@ -1,3 +1,4 @@
+
 const ITunesProvider = {
   id: "itunes",
   name: "iTunes",
@@ -18,7 +19,10 @@ const ITunesProvider = {
 
     const url = `https://itunes.apple.com/search?${params}`;
 
-    const response = await fetch(url);
+    // Automatically abort the network request after 8 seconds
+    const response = await fetch(url, {
+      signal: AbortSignal.timeout(8000)
+    });
 
     if (!response.ok) {
       throw new Error("iTunes API request failed");
