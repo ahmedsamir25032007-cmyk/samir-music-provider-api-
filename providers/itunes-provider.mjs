@@ -2,7 +2,6 @@ const ITunesProvider = {
   id: "itunes",
   name: "iTunes",
   status: "active",
-  name: "iTunes",
 
   async search(query) {
     const cleanQuery = query.trim();
